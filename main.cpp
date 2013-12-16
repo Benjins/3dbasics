@@ -37,5 +37,9 @@ int main(){
 	cout << "\nMagnitude: \n";
 	cout << testVec.Magnitude() << endl;
 	
+	//Project test vector onto the x-axis
+	cout << "\nTest Vector projected onto the x-axis.\n";
+	VectorProject(testVec,X_AXIS).Print();
+	
 	return 0;
 }

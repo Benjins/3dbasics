@@ -48,6 +48,9 @@ struct Vector3 {
 	//The length of the vector
 	float Magnitude() const;
 	
+	//The square of the length of the vector (optimization, doesn't require a sqrt())
+	float MagnitudeSquared() const;
+	
 	//Return the vector's normalized form 
 	//NOTE: This does not modify the original vector.  To do that, use Normlize() instead
 	Vector3 Normalized() const;
@@ -64,6 +67,8 @@ struct Vector3 {
 float DotProduct(const Vector3& a, const Vector3& b);
 
 Vector3 CrossProduct(const Vector3& a, const Vector3& b);
+
+Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto);
 
 #endif
 

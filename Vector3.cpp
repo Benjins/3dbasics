@@ -26,6 +26,7 @@ Vector3::Vector3(float xIn, float yIn, float zIn){
 	z = zIn;
 }
 
+//Constructor given another vector reference
 Vector3::Vector3(const Vector3& vector){
 	x = vector.x;
 	y = vector.y;
@@ -60,6 +61,11 @@ float Vector3::Magnitude() const{
 	return sqrt(x*x + y*y + z*z);
 }
 
+//The square of the length of the vector (optimization, doesn't require a sqrt())
+float Vector3::MagnitudeSquared() const{
+	return (x*x + y*y + z*z);
+}
+
 //Return the vector's normalized form 
 //NOTE: This does not modify the original vector.  To do that, use Normlize() instead
 Vector3 Vector3::Normalized() const{
@@ -70,9 +76,9 @@ Vector3 Vector3::Normalized() const{
 //Set the vector to its normalizd form, so that its magnitude (length) is one
 void Vector3::Normalize(){
 	float magnitude = Magnitude();
-	x = x / magnitude;
-	y = y / magnitude;
-	z = z / magnitude;
+	x /= magnitude;
+	y /= magnitude;
+	z /= magnitude;
 }
 
 //Print all values of the vector in a readable form (used mostly for debugging)
@@ -93,6 +99,10 @@ Vector3 CrossProduct(const Vector3& a, const Vector3& b){
 	return Vector3( (a.y*b.z - a.z*b.y), 
 					(a.z*b.x - a.x*b.z), 
 					(a.x*b.y - a.y*b.x));
+}
+
+Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto){
+	return projectOnto * (DotProduct(toProject, projectOnto) / projectOnto.MagnitudeSquared());
 }
 
 
