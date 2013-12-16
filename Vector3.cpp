@@ -33,6 +33,7 @@ Vector3::Vector3(const Vector3& vector){
 	z = vector.z;
 }
 
+//-----------------------------------------------------------------------
 //The following operators all apply to vector math, namely adding two vectors
 //and scalar multiplication.
 Vector3 Vector3::operator+(const Vector3& addVec) const{
@@ -50,6 +51,7 @@ Vector3 Vector3::operator*(float scale) const{
 Vector3 Vector3::operator/(float scale) const{
 	return Vector3(x / scale, y / scale, z / scale);
 }
+//-----------------------------------------------------------------------
 
 //Comparison operator just checks to see if all corresponding components are equal
 bool Vector3::operator==(const Vector3& compareVec) const{
@@ -94,13 +96,15 @@ float DotProduct(const Vector3& a, const Vector3& b){
 }
 
 //Returns a Vector orthogonal (perpendicular) to the two input vectors
-//The math seems complicated, but it's not important to understand what the cross product
+//The math seems complicated, but it's not important to understand what the cross product really is
 Vector3 CrossProduct(const Vector3& a, const Vector3& b){
 	return Vector3( (a.y*b.z - a.z*b.y), 
 					(a.z*b.x - a.x*b.z), 
 					(a.x*b.y - a.y*b.x));
 }
 
+//Project the vector toProject onto the vector projectOnto
+//Again, if it seems ufamiliar, just google it to get some intuition
 Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto){
 	return projectOnto * (DotProduct(toProject, projectOnto) / projectOnto.MagnitudeSquared());
 }

@@ -32,7 +32,6 @@ int main(){
 	cout << "\nDot Product fo the two: \n";
 	cout << DotProduct(testVec,normalVector) << endl;
 	
-	
 	//Print magnitude of the test vector
 	cout << "\nMagnitude: \n";
 	cout << testVec.Magnitude() << endl;

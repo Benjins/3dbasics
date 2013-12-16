@@ -47,7 +47,6 @@ struct Vector3 {
 	
 	//The length of the vector
 	float Magnitude() const;
-	
 	//The square of the length of the vector (optimization, doesn't require a sqrt())
 	float MagnitudeSquared() const;
 	
@@ -66,8 +65,10 @@ struct Vector3 {
 //The Dot Product, or overlap of two vectors
 float DotProduct(const Vector3& a, const Vector3& b);
 
+//Cross Product, returns a vector orthogonal/perpendicular to the two input vectors
 Vector3 CrossProduct(const Vector3& a, const Vector3& b);
 
+//Returns the projection of the first vector onto the second
 Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto);
 
 #endif
