@@ -56,6 +56,10 @@ struct Vector3 {
 		return Vector3(x / scale, y / scale, z / scale);
 	}
 	
+	bool operator==(const Vector3& compareVec) const{
+		return (x == compareVec.x && y == compareVec.y && z == compareVec.z);
+	}
+	
 	//The length of the vector
 	float Magnitude() const{
 		return sqrt(x*x + y*y + z*z);
