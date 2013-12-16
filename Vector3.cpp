@@ -44,6 +44,8 @@ Vector3 Vector3::operator-(const Vector3& subVec) const{
 	return Vector3(x - subVec.x, y - subVec.y, z - subVec.z);
 }
 
+//NOTE: Be careful you don't do [float] * [Vector3], since that format is not overloaded.
+//Always use [Vector3] * [float]
 Vector3 Vector3::operator*(float scale) const{
 	return Vector3(x * scale, y * scale, z * scale);
 }
@@ -56,6 +58,10 @@ Vector3 Vector3::operator/(float scale) const{
 //Comparison operator just checks to see if all corresponding components are equal
 bool Vector3::operator==(const Vector3& compareVec) const{
 	return (x == compareVec.x && y == compareVec.y && z == compareVec.z);
+}
+
+bool operator!=(const Vector3& compareVec) const{
+	return (x != compareVec.x || y != compareVec.y || z != compareVec.z);
 }
 
 //The length of the vector
@@ -90,6 +96,9 @@ void Vector3::Print() const{
 	cout << "\nThe Z value is: " << z << endl;
 }
 
+//-------------------------------------------------------------------------------
+//Non-method fucntions on two vectors
+
 //Returns the amount of overlap bewtween two vectors
 float DotProduct(const Vector3& a, const Vector3& b){
 	return a.x *b.x + a.y * b.y + a.z * b.z;
@@ -109,5 +118,5 @@ Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto){
 	return projectOnto * (DotProduct(toProject, projectOnto) / projectOnto.MagnitudeSquared());
 }
 
-
+//-----------------------------------------------------------------------------------
 

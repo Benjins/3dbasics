@@ -44,6 +44,7 @@ struct Vector3 {
 	
 	//Comparison operator just checks to see if all corresponding components are equal
 	bool operator==(const Vector3& compareVec) const;
+	bool operator!=(const Vector3& compareVec) const;
 	
 	//The length of the vector
 	float Magnitude() const;
