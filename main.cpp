@@ -8,7 +8,7 @@ Full License Text found in LICENSE file
 */
 
 #include <iostream>
-#include "Vector3.h"
+#include "3dbasics.h"
 
 using namespace std;
 
@@ -39,6 +39,13 @@ int main(){
 	//Project test vector onto the x-axis
 	cout << "\nTest Vector projected onto the x-axis.\n";
 	VectorProject(testVec,X_AXIS).Print();
+	
+	//A Quaternion that represents a rotation of 1.1 radians about testVec
+	Quaternion testQuat(testVec, (float)1.1);
+	
+	//Print the values of the test Quaternion
+	cout << "\nHere are the values for testQuat:\n";
+	testQuat.Print();
 	
 	return 0;
 }

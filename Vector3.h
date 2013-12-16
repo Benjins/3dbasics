@@ -7,12 +7,12 @@ Licensed under the GNU GPL v3
 Full License Text found in LICENSE file
 */
 
+#ifndef VECTOR3_H
+#define	VECTOR3_H
+
 #define X_AXIS Vector3(1,0,0)
 #define Y_AXIS Vector3(0,1,0)
 #define Z_AXIS Vector3(0,0,1)
-
-#ifndef VECTOR3_H
-#define	VECTOR3_H
 
 #include <cmath>
 #include <iostream>

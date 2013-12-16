@@ -8,7 +8,6 @@ Full License Text found in LICENSE file
 */
 
 #include "Vector3.h"
-#include <cmath>
 
 using namespace std;
 
@@ -60,7 +59,7 @@ bool Vector3::operator==(const Vector3& compareVec) const{
 	return (x == compareVec.x && y == compareVec.y && z == compareVec.z);
 }
 
-bool operator!=(const Vector3& compareVec) const{
+bool Vector3::operator!=(const Vector3& compareVec) const{
 	return (x != compareVec.x || y != compareVec.y || z != compareVec.z);
 }
 
