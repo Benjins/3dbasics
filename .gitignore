@@ -19,5 +19,3 @@
 *.cpp~
 *.h~
 
-#The .gitignore file
-.gitignore
