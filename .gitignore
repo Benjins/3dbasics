@@ -11,3 +11,13 @@
 *.lai
 *.la
 *.a
+
+#Executables
+*.out
+
+#Auto-saves
+*.cpp~
+*.h~
+
+#The .gitignore file
+.gitignore
