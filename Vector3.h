@@ -1,12 +1,15 @@
 /*
 This is the Vector3 header file for the 3dbasics program, which provides simple tools 
-to represent and compute a 3D environment
+to represent and compute a 3D environment.
 
 Author: Benji Smith, 2013
 Licensed under the GNU GPL v3
 Full License Text found in LICENSE file
 */
 
+#define X_AXIS Vector3(1,0,0)
+#define Y_AXIS Vector3(0,1,0)
+#define Z_AXIS Vector3(0,0,1)
 
 #ifndef VECTOR3_H
 #define	VECTOR3_H
@@ -28,69 +31,39 @@ struct Vector3 {
 	float y;
 	float z;
 	
-	Vector3(){
-		x = 0;
-		y = 0;
-		z = 0;
-	}
+	Vector3();
+	Vector3(float xIn, float yIn, float zIn);
+	Vector3(const Vector3& vector);
 	
-	Vector3(float xIn, float yIn, float zIn){
-		x = xIn;
-		y = yIn;
-		z = zIn;
-	}
+	//The following operators all apply to vector math, namely adding two vectors
+	//and scalar multiplication.
+	Vector3 operator+(const Vector3& addVec) const;
+	Vector3 operator-(const Vector3& subVec) const;
+	Vector3 operator*(float scale) const;	
+	Vector3 operator/(float scale) const;
 	
-	Vector3 operator+(const Vector3& addVec) const{
-		return Vector3(x + addVec.x, y + addVec.y, z + addVec.z);
-	}
-	
-	Vector3 operator-(const Vector3& subVec) const{
-		return Vector3(x - subVec.x, y - subVec.y, z - subVec.z);
-	}
-	
-	Vector3 operator*(float scale) const{
-		return Vector3(x * scale, y * scale, z * scale);
-	}
-	
-	Vector3 operator/(float scale) const{
-		return Vector3(x / scale, y / scale, z / scale);
-	}
-	
-	bool operator==(const Vector3& compareVec) const{
-		return (x == compareVec.x && y == compareVec.y && z == compareVec.z);
-	}
+	//Comparison operator just checks to see if all corresponding components are equal
+	bool operator==(const Vector3& compareVec) const;
 	
 	//The length of the vector
-	float Magnitude() const{
-		return sqrt(x*x + y*y + z*z);
-	}
+	float Magnitude() const;
 	
 	//Return the vector's normalized form 
 	//NOTE: This does not modify the original vector.  To do that, use Normlize() instead
-	Vector3 Normalized() const{
-		float magnitude = Magnitude();
-		return *this / magnitude;
-	}
+	Vector3 Normalized() const;
 	
 	//Set the vector to its normalizd form, so that its magnitude (length) is one
-	void Normalize(){
-		float magnitude = Magnitude();
-		x = x / magnitude;
-		y = y / magnitude;
-		z = z / magnitude;
-	}
+	void Normalize();
 	
 	//Print all values of the vector in a readable form (used mostly for debugging)
-	void Print() const{
-		cout << "\nThe X value is: " << x << endl;
-		cout << "\nThe Y value is: " << y << endl;
-		cout << "\nThe Z value is: " << z << endl;
-	}
+	void Print() const;
 	
 };
 
 //The Dot Product, or overlap of two vectors
 float DotProduct(const Vector3& a, const Vector3& b);
+
+Vector3 CrossProduct(const Vector3& a, const Vector3& b);
 
 #endif
 

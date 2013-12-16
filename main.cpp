@@ -1,6 +1,6 @@
 /*
 This is the main source file for the 3dbasics program, which provides simple tools 
-to represent and compute a 3D environment
+to represent and compute a 3D environment.
 
 Author: Benji Smith, 2013
 Licensed under the GNU GPL v3
