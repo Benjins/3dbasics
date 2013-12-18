@@ -42,6 +42,14 @@ Quaternion::Quaternion(const Vector3& axis, float angle){
 	z = normalizedAxis.z * cosHalfAngle;
 }
 
+//Constructs a Quaternion from a Vector3, basically just adding a 0 component in front of it.
+Quaternion::Quaternion(const Vector3& vector){
+	w = 0;
+	x = vector.x;
+	y = vector.y;
+	z = vector.z;
+}
+
 Quaternion::Quaternion(const Quaternion& quat){
 	w = quat.w;
 	x = quat.x;
@@ -49,10 +57,81 @@ Quaternion::Quaternion(const Quaternion& quat){
 	z = quat.z;
 }
 
+//Add two quaternions: add each component and construct a new quaternion
+Quaternion Quaternion::operator+(const Quaternion& addQuat) const{
+	return Quaternion(w + addQuat.w,
+					  x + addQuat.x,
+					  y + addQuat.y,
+					  z + addQuat.z);
+}
+
+//Subtract two quaternions: subtract each component and construct a new quaternion
+Quaternion Quaternion::operator-(const Quaternion& subQuat) const{
+	return Quaternion(w - subQuat.w,
+					  x - subQuat.x,
+					  y - subQuat.y,
+					  z - subQuat.z);
+}
+
+//Scale a quaternion by a float/scalar.  Multply each component by the scale
+Quaternion Quaternion::operator*(float scale) const{
+	return Quaternion(w * scale,
+					  x * scale,
+					  y * scale,
+					  z * scale);
+}
+
+//Scale a quaternion by the inverse of a float/scalar.  Divide each component by the scale
+Quaternion Quaternion::operator/(float scale) const{
+	return Quaternion(w / scale,
+					  x / scale,
+					  y / scale,
+					  z / scale);
+}
+
+//Multiply two Quaternions, combine two rotations together
+//Although it looks weird/complex, it's really just math that lets you multiply two quaternions together.
+//It combines the rotations as if you'd done one, then the other.
+//NOTE: multiplication of quaternions is non-commutative (order matters), just like rotations
+Quaternion Quaternion::operator*(const Quaternion& multQuat) const{
+	return Quaternion(w*multQuat.w - x*multQuat.x - y*multQuat.y - z*multQuat.z,
+					  x*multQuat.w + w*multQuat.x - z*multQuat.y + y*multQuat.z,
+					  y*multQuat.w + z*multQuat.x + w*multQuat.y - x*multQuat.z,
+					  z*multQuat.w - y*multQuat.x + x*multQuat.y + w*multQuat.z);
+}
+
+//Get the conjugate (inverse) of the Quaternion
+Quaternion Quaternion::Conjugate() const{
+	return Quaternion(w,-x,-y,-z);
+}
+
+//The magnitude of a quaternion is similar to that of a vector 
+//(sqrt of the sum of squares of components)
+float Quaternion::Magnitude() const{
+	return sqrt(w*w + x*x + y*y + z*z);
+}
+
+Quaternion Quaternion::Normalized() const{
+	float magnitude = Magnitude();
+	return Quaternion(w / magnitude,
+					  x / magnitude,
+					  y / magnitude,
+					  z / magnitude);
+}
+
+void Quaternion::Normalize(){
+	float magnitude = Magnitude();
+	w /= magnitude;
+	x /= magnitude;
+	y /= magnitude;
+	z /= magnitude;
+}
+
+//Print the values of a quaternion in a readable fashion
 void Quaternion::Print() const{
-	cout << "\nThe W value is: " << w << endl;
-	cout << "\nThe X value is: " << x << endl;
-	cout << "\nThe Y value is: " << y << endl;
+	cout << "\nThe W value is: " << w;
+	cout << "\nThe X value is: " << x;
+	cout << "\nThe Y value is: " << y;
 	cout << "\nThe Z value is: " << z << endl;
 }
 

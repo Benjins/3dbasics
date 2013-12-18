@@ -8,6 +8,7 @@ Full License Text found in LICENSE file
 */
 
 #include "Vector3.h"
+#include "Quaternion.h"
 
 using namespace std;
 
@@ -90,8 +91,8 @@ void Vector3::Normalize(){
 
 //Print all values of the vector in a readable form (used mostly for debugging)
 void Vector3::Print() const{
-	cout << "\nThe X value is: " << x << endl;
-	cout << "\nThe Y value is: " << y << endl;
+	cout << "\nThe X value is: " << x;
+	cout << "\nThe Y value is: " << y;
 	cout << "\nThe Z value is: " << z << endl;
 }
 
@@ -118,4 +119,18 @@ Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto){
 }
 
 //-----------------------------------------------------------------------------------
+//Additional functions
+
+Vector3 Rotate(const Vector3& vector, const Quaternion& rotation){
+	Quaternion rotate      = rotation.Normalized();
+	Quaternion vectorQuat  = Quaternion(vector);
+	Quaternion conj        = rotate.Conjugate();
+	
+	Quaternion finalResult = (conj * vectorQuat) * rotate;
+	
+	return Vector3(finalResult.x, finalResult.y, finalResult.z);
+}
+
+
+
 

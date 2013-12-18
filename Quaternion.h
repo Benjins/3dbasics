@@ -32,8 +32,22 @@ struct Quaternion {
 	
 	Quaternion();
 	Quaternion(float wIn, float xIn, float yIn, float zIn);
-	Quaternion(const Vector3& axis, float angle); //NOTE: axis is in radians at the moment
+	Quaternion(const Vector3& axis, float angle); //NOTE: angle is in radians at the moment
+	Quaternion(const Vector3& vector);
 	Quaternion(const Quaternion& quat);
+	
+	Quaternion operator+(const Quaternion& addQuat) const;
+	Quaternion operator-(const Quaternion& subQuat) const;
+	Quaternion operator*(float scale) const;
+	Quaternion operator/(float scale) const;
+	
+	Quaternion operator*(const Quaternion& multQuat) const;
+	
+	Quaternion Conjugate() const;
+	
+	float Magnitude() const;
+	Quaternion Normalized() const;
+	void Normalize();
 	
 	void Print() const;
 

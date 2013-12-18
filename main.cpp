@@ -29,7 +29,7 @@ int main(){
 	normalVector.Print();
 	
 	//Find the dot product of the test vector and its normalized form
-	cout << "\nDot Product fo the two: \n";
+	cout << "\nDot Product of the two: \n";
 	cout << DotProduct(testVec,normalVector) << endl;
 	
 	//Print magnitude of the test vector
@@ -41,11 +41,31 @@ int main(){
 	VectorProject(testVec,X_AXIS).Print();
 	
 	//A Quaternion that represents a rotation of 1.1 radians about testVec
-	Quaternion testQuat(testVec, (float)1.1);
+	Quaternion testQuat(testVec, 1.1);
 	
-	//Print the values of the test Quaternion
-	cout << "\nHere are the values for testQuat:\n";
+	//A Quaternion that represents a rotation of 0.7 radians about testVec
+	Quaternion secondQuat(testVec, 0.7);
+	
+	//Print the three quaternions
+	cout << "\ntestQuat:\n";
 	testQuat.Print();
+	cout << "\nsecondQuat:\n";
+	secondQuat.Print();
+	//Print the first two quaternions multiplied together
+	cout << "\ntestQuat * secondQuat:\n";
+	(testQuat*secondQuat).Print();
+	
+	cout << "\nQuaternion(1,2,-2,4) * Quaternion(3,-.4,-.6,2):\n";
+	(Quaternion(1,2,-2,4) * Quaternion(3,-.4,-.6,2)).Print();
+	
+	cout << "\nQuaternion(3,-.4,-.6,2) * Quaternion(1,2,-2,4):\n";
+	(Quaternion(3,-.4,-.6,2) * Quaternion(1,2,-2,4)).Print();
+	
+	cout << "\nX-Axis rotated about y-axis by 90 degrees\n";
+	(Rotate(X_AXIS, Quaternion(Y_AXIS, 90.0f*DEG2RAD))).Print();
+	
+	cout << "\nX-Axis rotated about y-axis by 90 degrees, then y-axis by 90 degrees again\n";
+	(Rotate(X_AXIS, Quaternion(Y_AXIS, 90.0f*DEG2RAD) * Quaternion(Y_AXIS, 90.0f*DEG2RAD))).Print();	
 	
 	return 0;
 }

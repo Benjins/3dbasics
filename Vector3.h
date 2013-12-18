@@ -14,10 +14,15 @@ Full License Text found in LICENSE file
 #define Y_AXIS Vector3(0,1,0)
 #define Z_AXIS Vector3(0,0,1)
 
+#define DEG2RAD 0.01745329251
+#define RAD2DEG 57.2957795131
+
 #include <cmath>
 #include <iostream>
 
 using namespace std;
+
+struct Quaternion;
 
 /*
 The Vector3 structure, which holds information about a three-dimensional vector
@@ -71,6 +76,9 @@ Vector3 CrossProduct(const Vector3& a, const Vector3& b);
 
 //Returns the projection of the first vector onto the second
 Vector3 VectorProject(const Vector3& toProject, const Vector3& projectOnto);
+
+//Rotates the given vector by the quaternion
+Vector3 Rotate(const Vector3& vector, const Quaternion& rotation);
 
 #endif
 
