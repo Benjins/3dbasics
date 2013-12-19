@@ -111,6 +111,8 @@ float Quaternion::Magnitude() const{
 	return sqrt(w*w + x*x + y*y + z*z);
 }
 
+//Return the normalization of the quaternion (same proportions, magnitude of one)
+//NOTE: this does not modify the original quaternion.  For that, use Normalize
 Quaternion Quaternion::Normalized() const{
 	float magnitude = Magnitude();
 	return Quaternion(w / magnitude,
@@ -119,6 +121,8 @@ Quaternion Quaternion::Normalized() const{
 					  z / magnitude);
 }
 
+//Normalize the quaternion to a magnitude of 1
+//NOTE: this alters the original quaternion.  To get its normalization without modifying it, use Normalized() instead
 void Quaternion::Normalize(){
 	float magnitude = Magnitude();
 	w /= magnitude;

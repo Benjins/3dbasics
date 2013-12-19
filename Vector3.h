@@ -24,6 +24,8 @@ using namespace std;
 
 struct Quaternion;
 
+struct Vector2;
+
 /*
 The Vector3 structure, which holds information about a three-dimensional vector
 
@@ -38,6 +40,8 @@ struct Vector3 {
 	
 	Vector3();
 	Vector3(float xIn, float yIn, float zIn);
+	Vector3(const Vector2& vec, float zIn);
+	Vector3(float xIn, const Vector2& vec);
 	Vector3(const Vector3& vector);
 	
 	//The following operators all apply to vector math, namely adding two vectors
@@ -53,6 +57,7 @@ struct Vector3 {
 	
 	//The length of the vector
 	float Magnitude() const;
+	
 	//The square of the length of the vector (optimization, doesn't require a sqrt())
 	float MagnitudeSquared() const;
 	

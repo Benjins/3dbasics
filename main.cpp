@@ -55,15 +55,22 @@ int main(){
 	cout << "\ntestQuat * secondQuat:\n";
 	(testQuat*secondQuat).Print();
 	
+	cout << "\nsecondQuat * testQuat:\n";
+	(secondQuat*testQuat).Print();
+	
+	//Non-commutativity of Quaternions
 	cout << "\nQuaternion(1,2,-2,4) * Quaternion(3,-.4,-.6,2):\n";
 	(Quaternion(1,2,-2,4) * Quaternion(3,-.4,-.6,2)).Print();
 	
+	//This will output differently than the above command
 	cout << "\nQuaternion(3,-.4,-.6,2) * Quaternion(1,2,-2,4):\n";
 	(Quaternion(3,-.4,-.6,2) * Quaternion(1,2,-2,4)).Print();
 	
+	//Will be +Z-axis
 	cout << "\nX-Axis rotated about y-axis by 90 degrees\n";
 	(Rotate(X_AXIS, Quaternion(Y_AXIS, 90.0f*DEG2RAD))).Print();
 	
+	//Will be -X axis
 	cout << "\nX-Axis rotated about y-axis by 90 degrees, then y-axis by 90 degrees again\n";
 	(Rotate(X_AXIS, Quaternion(Y_AXIS, 90.0f*DEG2RAD) * Quaternion(Y_AXIS, 90.0f*DEG2RAD))).Print();	
 	

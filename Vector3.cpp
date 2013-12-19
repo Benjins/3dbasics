@@ -8,9 +8,12 @@ Full License Text found in LICENSE file
 */
 
 #include "Vector3.h"
+#include "Vector2.h"
 #include "Quaternion.h"
 
 using namespace std;
+
+//struct Vector2;
 
 //Default constructor
 Vector3::Vector3(){
@@ -24,6 +27,22 @@ Vector3::Vector3(float xIn, float yIn, float zIn){
 	x = xIn;
 	y = yIn;
 	z = zIn;
+}
+
+//Given a z value, and a position on the XY plane, get the corresponding Vector3
+Vector3::Vector3(const Vector2& vec, float zIn){
+	x = vec.x;
+	y = vec.y;
+	
+	z = zIn;
+}
+
+//Given an x value, and a position on the YZ plane, get the corresponding Vector3
+Vector3::Vector3(float xIn, const Vector2& vec){
+	x = xIn;
+	
+	y = vec.x;
+	z = vec.y;
 }
 
 //Constructor given another vector reference
