@@ -1,5 +1,5 @@
 /*
-This is the Vector2 source file for the 3dbasics program, which provides simple tools 
+This is the Vector2 source file for the 3dbasics program, which provides simple tools
 to represent and compute a 3D environment.
 
 Author: Benji Smith, 2013
@@ -45,10 +45,10 @@ Vector2 Vector2::operator-(const Vector2& subVec) const{
 Vector2 Vector2::operator*(float scale) const{
 	return Vector2(x*scale, y*scale);
 }
-	
+
 Vector2 Vector2::operator/(float scale) const{
 	return Vector2(x/scale, y/scale);
-}	
+}
 
 //Comparison operators simply check each corresponding component
 bool Vector2::operator==(const Vector2& compare) const{
@@ -69,7 +69,7 @@ float Vector2::MagnitudeSquared() const{
 	return (x*x + y*y);
 }
 
-//Return the vector's normalized form 
+//Return the vector's normalized form
 //NOTE: This does not modify the original vector.  To do that, use Normlize() instead
 Vector2 Vector2::Normalized() const{
 	float magnitude = Magnitude();
@@ -79,9 +79,14 @@ Vector2 Vector2::Normalized() const{
 //Set the vector to its normalizd form, so that its magnitude (length) is one
 void Vector2::Normalize(){
 	float magnitude = Magnitude();
-	
+
 	x /= magnitude;
 	y /= magnitude;
+}
+
+//Return the orthagonal complement of the vector (the vector perpendicular to it, of the same length)
+Vector2 Vector2::Perp() const{
+    return Vector2(-y, x);
 }
 
 //Print all values of the vector in a readable form (used mostly for debugging)
@@ -94,7 +99,7 @@ void Vector2::Print() const{
 //Non-method functions of two Vector2's
 
 float DotProduct(const Vector2& a, const Vector2& b){
-	return (a.x * b.x 
+	return (a.x * b.x
 		  + a.y * b.y);
 }
 

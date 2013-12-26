@@ -13,6 +13,7 @@
 *.a
 
 #Executables
+*.exe
 *.out
 
 #Auto-saves
