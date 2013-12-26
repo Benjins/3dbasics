@@ -18,7 +18,7 @@ Full License Text found in LICENSE file
 struct Vector2;
 struct Vector3;
 
-/* The Matrix structs hold information about arrays, ir matrices.  A matrix represents a transformation between vectors, and multiplying a matrix and a vector
+/* The Matrix structs hold information about arrays, i.e. matrices.  A matrix represents a transformation between vectors, and multiplying a matrix and a vector
 transforms that vector by the given amount.
 */
 
@@ -37,17 +37,21 @@ struct Matrix3x3{
     Vector3 Column2() const;
     Vector3 Column3() const;
 
+    //The transpoe is basically taking rows, and making them columns (reflecting it across the diagonal)
     Matrix3x3 Transpose() const;
 
+    //Adding matrices adds each corresponding value
     Matrix3x3 operator+(const Matrix3x3& multMatrix) const;
+    //Multiplying matrices is a bit mathy, but effectively combines their transformations, much like multiplying Quaternions
     Matrix3x3 operator*(const Matrix3x3& multMatrix) const;
 
+    //Multiplying a matrix by a vector transforms that vector (again, details are a bit mathy)
     Vector3 operator*(const Vector3& multVector) const;
 };
 
-Vector3 ArrayToVector3(float arr[]);
-Vector2 ArrayToVector2(float arr[]);
-
+//Vector3 ArrayToVector3(float arr[]);
+//Vector2 ArrayToVector2(float arr[]);
+//^Ignore for now, not being used
 
 
 

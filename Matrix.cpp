@@ -39,16 +39,19 @@ Vector3 Matrix3x3::Column3() const{
     return Vector3(row1.z, row2.z, row3.z);
 }
 
+//The transpoe is basically taking rows, and making them columns (reflecting it across the diagonal)
 Matrix3x3 Matrix3x3::Transpose() const{
     return Matrix3x3(Column1(), Column2(), Column3());
 }
 
+ //Adding matrices adds each corresponding value
 Matrix3x3 Matrix3x3::operator+(const Matrix3x3& multMatrix) const{
     return Matrix3x3( row1+ multMatrix.row1,
                       row2+ multMatrix.row2,
                       row3+ multMatrix.row3);
 }
 
+ //Multiplying matrices is a bit mathy, but effectively combines their transformations, much like multiplying Quaternions
 Matrix3x3 Matrix3x3::operator*(const Matrix3x3& param) const{
     return Matrix3x3( Vector3( DotProduct(row1, param.Column1()),
                                DotProduct(row1, param.Column2()),
@@ -63,6 +66,7 @@ Matrix3x3 Matrix3x3::operator*(const Matrix3x3& param) const{
                                DotProduct(row3, param.Column3())));
 }
 
+//Multiplying a matrix by a vector transforms that vector (again, details are a bit mathy)
 Vector3 Matrix3x3::operator*(const Vector3& multVector) const{
     return Vector3( DotProduct(row1, multVector),
                     DotProduct(row2, multVector),
