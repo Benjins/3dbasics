@@ -84,5 +84,17 @@ int main(){
 	cout << "\nTestVec flipped about the origin.\n";
 	flippedVec.Print();
 
+    //This matrix represents a linear transformation that keeps X unchanged, inverts Y, and doubles Z
+	Matrix3x3 testMatrix( Vector3(1, 0,  0),
+                          Vector3(0, -1, 0),
+                          Vector3(0, 0,  2));
+
+    //This transforms the test vector according to the matrix
+    Vector3 transformedVec = testMatrix * testVec;
+
+    //Print the transformed vector
+    cout << "\nTransformed Vector: \n";
+    transformedVec.Print();
+
 	return 0;
 }

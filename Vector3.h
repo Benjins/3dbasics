@@ -1,5 +1,5 @@
 /*
-This is the Vector3 header file for the 3dbasics program, which provides simple tools 
+This is the Vector3 header file for the 3dbasics program, which provides simple tools
 to represent and compute a 3D environment.
 
 Author: Benji Smith, 2013
@@ -37,40 +37,40 @@ struct Vector3 {
 	float x;
 	float y;
 	float z;
-	
+
 	Vector3();
 	Vector3(float xIn, float yIn, float zIn);
 	Vector3(const Vector2& vec, float zIn);
 	Vector3(float xIn, const Vector2& vec);
 	Vector3(const Vector3& vector);
-	
+
 	//The following operators all apply to vector math, namely adding two vectors
 	//and scalar multiplication.
 	Vector3 operator+(const Vector3& addVec) const;
 	Vector3 operator-(const Vector3& subVec) const;
-	Vector3 operator*(float scale) const;	
+	Vector3 operator*(float scale) const;
 	Vector3 operator/(float scale) const;
-	
+
 	//Comparison operator just checks to see if all corresponding components are equal
 	bool operator==(const Vector3& compareVec) const;
 	bool operator!=(const Vector3& compareVec) const;
-	
+
 	//The length of the vector
 	float Magnitude() const;
-	
+
 	//The square of the length of the vector (optimization, doesn't require a sqrt())
 	float MagnitudeSquared() const;
-	
-	//Return the vector's normalized form 
+
+	//Return the vector's normalized form
 	//NOTE: This does not modify the original vector.  To do that, use Normlize() instead
 	Vector3 Normalized() const;
-	
+
 	//Set the vector to its normalizd form, so that its magnitude (length) is one
 	void Normalize();
-	
+
 	//Print all values of the vector in a readable form (used mostly for debugging)
 	void Print() const;
-	
+
 };
 
 //The Dot Product, or overlap of two vectors

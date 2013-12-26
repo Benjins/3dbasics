@@ -10,3 +10,4 @@ Full License Text found in LICENSE file
 #include "Vector3.h"
 #include "Quaternion.h"
 #include "Basis.h"
+#include "Matrix.h"
