@@ -73,6 +73,13 @@ Vector3 Matrix3x3::operator*(const Vector3& multVector) const{
                     DotProduct(row3, multVector));
 }
 
+//Multiplying a matrix by a float just multiplies each element of the matrix by that float
+Matrix3x3 Matrix3x3::operator*(float scale) const{
+    return Matrix3x3(row1 * scale,
+                     row2 * scale,
+                     row3 * scale);
+}
+
 //Print the values of the matrix in a readable format
 void Matrix3x3::Print() const{
     cout << "\n| " << row1.x << " " << row1.y << " " << row1.z << " |\n";

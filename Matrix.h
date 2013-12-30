@@ -47,6 +47,9 @@ struct Matrix3x3{
     //Multiplying matrices is a bit mathy, but effectively combines their transformations, much like multiplying Quaternions
     Matrix3x3 operator*(const Matrix3x3& multMatrix) const;
 
+    //Multiplying a matrix by a float just multiplies each element of the matrix by that float
+    Matrix3x3 operator*(float scale) const;
+
     //Multiplying a matrix by a vector transforms that vector (again, details are a bit mathy)
     Vector3 operator*(const Vector3& multVector) const;
 
