@@ -73,6 +73,19 @@ Vector3 Matrix3x3::operator*(const Vector3& multVector) const{
                     DotProduct(row3, multVector));
 }
 
+//Print the values of the matrix in a readable format
+void Matrix3x3::Print() const{
+    cout << "\n| " << row1.x << " " << row1.y << " " << row1.z << " |\n";
+    cout <<   "| " << row2.x << " " << row2.y << " " << row2.z << " |\n";
+    cout <<   "| " << row3.x << " " << row3.y << " " << row3.z << " |\n";
+}
+
+Matrix3x3 MakeScaleMatrix(float scale){
+    return Matrix3x3( Vector3(scale, 0,     0),
+                      Vector3(0,     scale, 0),
+                      Vector3(0,     0,     scale));
+}
+
 /*
 //Not needed now, and they didn't work to begin with
 Vector3 ArrayToVector3(float arr[]){

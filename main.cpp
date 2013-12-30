@@ -89,6 +89,9 @@ int main(){
                           Vector3(0, -1, 0),
                           Vector3(0, 0,  2));
 
+    cout << "\nTest Matrix values.\n";
+    testMatrix.Print();
+
     //This transforms the test vector according to the matrix
     Vector3 transformedVec = testMatrix * testVec;
 
