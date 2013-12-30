@@ -10,6 +10,8 @@ Full License Text found in LICENSE file
 #ifndef SPHERE_H
 #define SPHERE_H
 
+#include "Vector3.h"
+
 struct Vector3;
 
 struct Sphere{
@@ -17,10 +19,10 @@ struct Sphere{
     float radius;
 
     Sphere();
-    Sphere(Vector3 origin);
-    Sphere(Vector3 origin, float radius);
+    Sphere(const Vector3& _origin);
+    Sphere(const Vector3& _origin, float _radius);
 
-    bool Contains(const Vector3& tesPt) const;
+    bool Contains(const Vector3& testPt) const;
 };
 
 #endif

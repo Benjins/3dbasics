@@ -11,3 +11,4 @@ Full License Text found in LICENSE file
 #include "Quaternion.h"
 #include "Basis.h"
 #include "Matrix.h"
+#include "Sphere.h"

@@ -99,5 +99,14 @@ int main(){
     cout << "\nTransformed Vector: \n";
     transformedVec.Print();
 
+    Sphere testSphere(Vector3(2,3,-1), 2.1);
+
+    if(testSphere.Contains( Vector3(0,0,0) )){
+        cout << "\nThe sphere contains the origin.\n";
+    }
+    else{
+        cout << "\nThe sphere does not contain the origin.\n";
+    }
+
 	return 0;
 }
