@@ -23,7 +23,6 @@ Full License Text found in LICENSE file
 using namespace std;
 
 struct Quaternion;
-
 struct Vector2;
 
 /*

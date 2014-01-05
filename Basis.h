@@ -13,9 +13,6 @@ Full License Text found in LICENSE file
 #include "Vector3.h"
 #include "Vector2.h"
 
-struct Vector2;
-struct Vector3;
-
 #define CARTESIAN_BASIS3D Basis3D(X_AXIS, Y_AXIS, Z_AXIS)
 #define CARTESIAN_BASIS2D Basis2D(X_AXIS, Y_AXIS)
 

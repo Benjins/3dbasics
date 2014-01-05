@@ -8,11 +8,6 @@ Full License Text found in LICENSE file
 */
 
 #include "Matrix.h"
-#include "Vector3.h"
-#include "Vector2.h"
-
-struct Vector2;
-struct Vector3;
 
 //This is the identity matrix
 Matrix3x3::Matrix3x3(){

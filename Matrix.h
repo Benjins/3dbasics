@@ -13,10 +13,7 @@ Full License Text found in LICENSE file
 #include "Vector2.h"
 #include "Vector3.h"
 
-#define IDENTITY_3x3
-
-struct Vector2;
-struct Vector3;
+#define IDENTITY_3x3 (Matrix3x3(X_AXIS,Y_AXIS,Z_AXIS))
 
 /* The Matrix structs hold information about arrays, i.e. matrices.
 A matrix represents a transformation between vectors, and multiplying

@@ -8,10 +8,6 @@ Full License Text found in LICENSE file
 */
 
 #include "Transform.h"
-#include "Vector3.h"
-
-struct Vector3;
-
 
 Transform::Transform()
 {

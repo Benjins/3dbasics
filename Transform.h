@@ -10,6 +10,11 @@ Full License Text found in LICENSE file
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
+#include "Vector3.h"
+#include "Quaternion.h"
+#include "Basis.h"
+
+
 /*
 The Transform structure holds information about the three main transformations for a 3D rigidbody: position, rotation, and scale.
 Note that position is an affine transformation, so this structure is not equivalent to the Basis3D structure, which only holds linear transformations.

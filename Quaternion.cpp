@@ -1,5 +1,5 @@
 /*
-This is the Quaternion source file for the 3dbasics program, which provides simple tools 
+This is the Quaternion source file for the 3dbasics program, which provides simple tools
 to represent and compute a 3D environment.
 
 Author: Benji Smith, 2013
@@ -9,6 +9,7 @@ Full License Text found in LICENSE file
 
 #include "Quaternion.h"
 #include "Vector3.h"
+
 #include <cmath>
 #include <iostream>
 
@@ -33,10 +34,10 @@ Quaternion::Quaternion(float wIn, float xIn, float yIn, float zIn){
 Quaternion::Quaternion(const Vector3& axis, float angle){
 	float halfAngle = angle/2;
 	w = sin(halfAngle);
-	
+
 	Vector3 normalizedAxis = axis.Normalized();
 	float cosHalfAngle = sqrt(1 - w*w); //because cos(x)^2 + sin(x)^2 = 1
-	
+
 	x = normalizedAxis.x * cosHalfAngle;
 	y = normalizedAxis.y * cosHalfAngle;
 	z = normalizedAxis.z * cosHalfAngle;
@@ -105,7 +106,7 @@ Quaternion Quaternion::Conjugate() const{
 	return Quaternion(w,-x,-y,-z);
 }
 
-//The magnitude of a quaternion is similar to that of a vector 
+//The magnitude of a quaternion is similar to that of a vector
 //(sqrt of the sum of squares of components)
 float Quaternion::Magnitude() const{
 	return sqrt(w*w + x*x + y*y + z*z);

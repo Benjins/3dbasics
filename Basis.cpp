@@ -8,11 +8,7 @@ Full License Text found in LICENSE file
 */
 
 #include "Basis.h"
-#include "Vector3.h"
-#include "Vector2.h"
 
-struct Vector2;
-struct Vector3;
 
 Basis3D::Basis3D(){
     i = X_AXIS;

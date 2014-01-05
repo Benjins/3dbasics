@@ -12,8 +12,6 @@ Full License Text found in LICENSE file
 
 #include "Vector3.h"
 
-struct Vector3;
-
 struct Sphere{
     Vector3 origin;
     float radius;
