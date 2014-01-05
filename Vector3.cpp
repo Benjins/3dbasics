@@ -1,5 +1,5 @@
 /*
-This is the Vector3 source file for the 3dbasics program, which provides simple tools 
+This is the Vector3 source file for the 3dbasics program, which provides simple tools
 to represent and compute a 3D environment.
 
 Author: Benji Smith, 2013
@@ -33,14 +33,14 @@ Vector3::Vector3(float xIn, float yIn, float zIn){
 Vector3::Vector3(const Vector2& vec, float zIn){
 	x = vec.x;
 	y = vec.y;
-	
+
 	z = zIn;
 }
 
 //Given an x value, and a position on the YZ plane, get the corresponding Vector3
 Vector3::Vector3(float xIn, const Vector2& vec){
 	x = xIn;
-	
+
 	y = vec.x;
 	z = vec.y;
 }
@@ -93,7 +93,7 @@ float Vector3::MagnitudeSquared() const{
 	return (x*x + y*y + z*z);
 }
 
-//Return the vector's normalized form 
+//Return the vector's normalized form
 //NOTE: This does not modify the original vector.  To do that, use Normlize() instead
 Vector3 Vector3::Normalized() const{
 	float magnitude = Magnitude();
@@ -106,6 +106,14 @@ void Vector3::Normalize(){
 	x /= magnitude;
 	y /= magnitude;
 	z /= magnitude;
+}
+
+//Scale each componenet by the corresponing component in the scale vector
+//(e.g. scaling a vector by Vector3(1,1,2) would keep x and y constant, but double z).
+Vector3 Vector3::Scaled(const Vector3& scaleVector) const{
+    return Vector3( x * scaleVector.x,
+                    y * scaleVector.y,
+                    z * scaleVector.z);
 }
 
 //Print all values of the vector in a readable form (used mostly for debugging)
@@ -126,8 +134,8 @@ float DotProduct(const Vector3& a, const Vector3& b){
 //Returns a Vector orthogonal (perpendicular) to the two input vectors
 //The math seems complicated, but it's not important to understand what the cross product really is
 Vector3 CrossProduct(const Vector3& a, const Vector3& b){
-	return Vector3( (a.y*b.z - a.z*b.y), 
-					(a.z*b.x - a.x*b.z), 
+	return Vector3( (a.y*b.z - a.z*b.y),
+					(a.z*b.x - a.x*b.z),
 					(a.x*b.y - a.y*b.x));
 }
 
@@ -144,9 +152,9 @@ Vector3 Rotate(const Vector3& vector, const Quaternion& rotation){
 	Quaternion rotate      = rotation.Normalized();
 	Quaternion vectorQuat  = Quaternion(vector);
 	Quaternion conj        = rotate.Conjugate();
-	
+
 	Quaternion finalResult = (conj * vectorQuat) * rotate;
-	
+
 	return Vector3(finalResult.x, finalResult.y, finalResult.z);
 }
 

@@ -68,6 +68,10 @@ struct Vector3 {
 	//Set the vector to its normalizd form, so that its magnitude (length) is one
 	void Normalize();
 
+    //Scale each componenet by the corresponing componenet in the scale vector
+    //(e.g. scaling a vector by Vector3(1,1,2) would keep x and y constant, but double z).
+	Vector3 Scaled(const Vector3& scaleVector) const;
+
 	//Print all values of the vector in a readable form (used mostly for debugging)
 	void Print() const;
 

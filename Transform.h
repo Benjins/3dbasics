@@ -22,13 +22,18 @@ struct Transform
     Quaternion rotation;
     Vector3 scale;
 
+    //Constructors
     Transform();
     Transform(const Vector3& _position, const Quaternion& _rotation, const Vector3& _scale);
 
     //NOTE: does not take into account transform.position, since that's an affine transformation.
     Basis3D GetBasis() const;
 
-    Vector3 TransformVector(const Vector3& original) const;
+    //Transform a vector into this transform's space
+    Vector3 GlobalToLocal(const Vector3& original) const;
+
+    //Transform a vector from this transform's space
+    Vector3 LocalToGlobal(const Vector3& original) const;
 };
 
 #endif // TRANSFORM_H

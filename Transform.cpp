@@ -33,6 +33,24 @@ Basis3D Transform::GetBasis() const{
                      Rotate(Z_AXIS * scale.z, rotation)));
 }
 
-Vector3 Transform::TransformVector(const Vector3& original) const;
+Vector3 Transform::GlobalToLocal(const Vector3& global) const{
+    Vector3 localVec;
+    localVec = global - position;
+    localVec = Rotate(localVec, rotation.Conjugate());
+    localVec = localVec.Scaled(Vector3( 1 / scale.x,
+                                        1 / scale.y,
+                                        1 / scale.z));
+
+    return localVec;
+}
+
+Vector3 Transform::LocalToGlobal(const Vector3& local) const{
+    Vector3 globalVec;
+    globalVec = local.Scaled(scale);
+    globalVec = Rotate(globalVec, rotation);
+    globalVec = globalVec + position;
+
+    return globalVec;
+}
 
 
