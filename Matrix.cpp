@@ -88,6 +88,15 @@ Matrix3x3 MakeScaleMatrix(float scale){
                       Vector3(0,     0,     scale));
 }
 
+Matrix3x3 MakeMatrixFromColumns(const Vector3& column1,
+                                           const Vector3& column2,
+                                           const Vector3& column3){
+
+    return Matrix3x3( Vector3(column1.x, column2.x, column3.x),
+                      Vector3(column1.y, column2.y, column3.y),
+                      Vector3(column1.x, column2.z, column3.z));
+}
+
 /*
 //Not needed now, and they didn't work to begin with
 Vector3 ArrayToVector3(float arr[]){

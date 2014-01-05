@@ -13,7 +13,7 @@ Full License Text found in LICENSE file
 #include "Vector3.h"
 #include "Quaternion.h"
 #include "Basis.h"
-
+#include "Matrix.h"
 
 /*
 The Transform structure holds information about the three main transformations for a 3D rigidbody: position, rotation, and scale.
@@ -33,6 +33,10 @@ struct Transform
 
     //NOTE: does not take into account transform.position, since that's an affine transformation.
     Basis3D GetBasis() const;
+
+    //Get's the matrix that represents the transformations of the Transform.
+    //NOTE: Does not take into account transform.position, since that's an affine transformation
+    Matrix3x3 GetMatrix() const;
 
     //Transform a vector into this transform's space
     Vector3 GlobalToLocal(const Vector3& original) const;

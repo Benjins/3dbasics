@@ -61,4 +61,6 @@ struct Matrix3x3{
 
 Matrix3x3 MakeScaleMatrix(float scale);
 
+Matrix3x3 MakeMatrixFromColumns(const Vector3& column1, const Vector3& column2, const Vector3& column3);
+
 #endif // MATRIX_H

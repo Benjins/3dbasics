@@ -29,6 +29,14 @@ Basis3D Transform::GetBasis() const{
                      Rotate(Z_AXIS * scale.z, rotation)));
 }
 
+//Get's the matrix that represents the transformations of the Transform.
+//NOTE: Does not take into account transform.position, since that's an affine transformation
+Matrix3x3 Transform::GetMatrix() const{
+    return MakeMatrixFromColumns( Rotate(X_AXIS * scale.x, rotation),
+                                  Rotate(Y_AXIS * scale.y, rotation),
+                                  Rotate(Z_AXIS * scale.z, rotation));
+}
+
 Vector3 Transform::GlobalToLocal(const Vector3& global) const{
     Vector3 localVec;
     localVec = global - position;
