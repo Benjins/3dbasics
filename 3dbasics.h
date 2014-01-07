@@ -12,3 +12,4 @@ Full License Text found in LICENSE file
 #include "Basis.h"
 #include "Matrix.h"
 #include "Sphere.h"
+#include "Box.h"

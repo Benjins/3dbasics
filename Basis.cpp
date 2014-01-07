@@ -9,7 +9,6 @@ Full License Text found in LICENSE file
 
 #include "Basis.h"
 
-
 Basis3D::Basis3D(){
     i = X_AXIS;
     j = Y_AXIS;

@@ -57,7 +57,7 @@ struct Vector3 {
 	//The length of the vector
 	float Magnitude() const;
 
-	//The square of the length of the vector (optimization, doesn't require a sqrt())
+	//The square of the length of the vector (for optimization, doesn't require a sqrt())
 	float MagnitudeSquared() const;
 
 	//Return the vector's normalized form

@@ -108,5 +108,14 @@ int main(){
         cout << "\nThe sphere does not contain the origin.\n";
     }
 
+    Box testBox(Vector3(2,3,-1), Vector3(4,3.1,1));
+
+    if(testBox.Contains( Vector3(0,0,0) )){
+        cout << "\nThe Box contains the origin.\n";
+    }
+    else{
+        cout << "\nThe Box does not contain the origin.\n";
+    }
+
 	return 0;
 }
