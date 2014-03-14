@@ -34,7 +34,7 @@ Vector3 Matrix3x3::Column3() const{
     return Vector3(row1.z, row2.z, row3.z);
 }
 
-//The transpoe is basically taking rows, and making them columns (reflecting it across the diagonal)
+//The transpose is basically taking the rows, and making them columns (reflecting it across the diagonal)
 Matrix3x3 Matrix3x3::Transpose() const{
     return Matrix3x3(Column1(), Column2(), Column3());
 }

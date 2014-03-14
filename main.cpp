@@ -2,6 +2,8 @@
 This is the main source file for the 3dbasics program, which provides simple tools
 to represent and compute a 3D environment.
 
+This file is mostly for testing purposes.
+
 Author: Benji Smith, 2013
 Licensed under the GNU GPL v3
 Full License Text found in LICENSE file

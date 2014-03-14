@@ -74,7 +74,7 @@ Quaternion Quaternion::operator-(const Quaternion& subQuat) const{
 					  z - subQuat.z);
 }
 
-//Scale a quaternion by a float/scalar.  Multply each component by the scale
+//Scale a quaternion by a float/scalar.  Multiply each component by the scale
 Quaternion Quaternion::operator*(float scale) const{
 	return Quaternion(w * scale,
 					  x * scale,
