@@ -118,6 +118,16 @@ int main(){
     else{
         cout << "\nThe Box does not contain the origin.\n";
     }
+	
+	Triangle testTri1 = Triangle(Vector3(0,0,0), Vector3(0,4,0), Vector3(4,0,0));
+	cout << "\nThe triangle's area is: " << testTri1.CalculateArea() << endl;
+	cout << "\nThe triangle's normal is: ";
+	testTri1.GetNormal().Print();
 
+	Triangle testTri2 = Triangle(Vector3(0,1,2), Vector3(5,4,0), Vector3(4,-1,2));
+	cout << "\nThe triangle's area is: " << testTri2.CalculateArea() << endl;
+	cout << "\nThe triangle's normal is: ";
+	testTri2.GetNormal().Print();
+	
 	return 0;
 }

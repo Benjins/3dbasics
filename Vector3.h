@@ -14,8 +14,8 @@ Full License Text found in LICENSE file
 #define Y_AXIS Vector3(0,1,0)
 #define Z_AXIS Vector3(0,0,1)
 
-#define DEG2RAD 0.01745329251
-#define RAD2DEG 57.2957795131
+#define DEG2RAD 0.01745329251f
+#define RAD2DEG 57.2957795131f
 
 #include <cmath>
 #include <iostream>
