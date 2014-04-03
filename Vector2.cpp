@@ -107,7 +107,16 @@ Vector2 Project(const Vector2& toProject, const Vector2& projectOnto){
 	return projectOnto * (DotProduct(toProject, projectOnto) / projectOnto.MagnitudeSquared());
 }
 
+float CalculateTriangleAreaBetween(const Vector2& first, const Vetor2& second){
+	return CrossProduct( Vector3(first, 0), Vector2(second, 0) ).magnitude();
+}
+
 //-------------------------------------------------------------------------------------
 //Additional functions
 
-
+float CalculateArea(const Vector2& vert0, const Vector2& vert1, const Vector2& vert2){
+	Vector2 edge1 = vert1 - vert0;
+	Vector2 edge2 = vert2 - vert0;
+	
+	return CalculateTriangleAreaBetween(edge1, edge2);
+}
