@@ -9,8 +9,7 @@ Full License Text found in LICENSE file
 
 #include "Transform.h"
 
-Transform::Transform()
-{
+Transform::Transform(){
     position = Vector3();
     rotation = Quaternion();
     scale    = Vector3(1,1,1);
@@ -35,6 +34,10 @@ Matrix3x3 Transform::GetMatrix() const{
     return MakeMatrixFromColumns( Rotate(X_AXIS * scale.x, rotation),
                                   Rotate(Y_AXIS * scale.y, rotation),
                                   Rotate(Z_AXIS * scale.z, rotation));
+}
+
+Vector3 Transform::Forward() const{
+	return Rotate(Z_AXIS, rotation);
 }
 
 Vector3 Transform::GlobalToLocal(const Vector3& global) const{

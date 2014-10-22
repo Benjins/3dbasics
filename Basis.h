@@ -10,8 +10,8 @@ Full License Text found in LICENSE file
 #ifndef BASIS_H
 #define BASIS_H
 
-#include "Vector3.h"
 #include "Vector2.h"
+#include "Vector3.h"
 
 #define CARTESIAN_BASIS3D Basis3D(X_AXIS, Y_AXIS, Z_AXIS)
 #define CARTESIAN_BASIS2D Basis2D(X_AXIS, Y_AXIS)
@@ -25,6 +25,7 @@ Full License Text found in LICENSE file
  The most common coordinate system is the Cartesian coordinate system, where each component represents a unit-length vector in the direction of one of the axes,
  however alternate coordinate systems are very useful in transformations, parent-child relationships, etc.
 */
+
 
 struct Basis3D{
     Vector3 i; //Analagous to x-axis

@@ -19,6 +19,8 @@ Full License Text found in LICENSE file
 
 Uses include: screen coordinates, points on a plane, etc.*/
 
+struct Vector3;
+
 struct Vector2{
 	float x;
 	float y;
@@ -65,7 +67,7 @@ Vector2 Project(const Vector2& toProject, const Vector2& projectOnto);
 
 float CalculateTriangleAreaBetween(const Vector2& first, const Vector2& second);
 
-float CalculateArea(const Vector2& vert0, const Vector2& vert1, const Vector2& vert2)
+float CalculateArea(const Vector2& vert0, const Vector2& vert1, const Vector2& vert2);
 
 
 #endif

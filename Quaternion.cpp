@@ -32,15 +32,20 @@ Quaternion::Quaternion(float wIn, float xIn, float yIn, float zIn){
 
 //Constructs a Quaternion that represents the given axis-angle rotation
 Quaternion::Quaternion(const Vector3& axis, float angle){
+	if(angle == 0){
+		w = 1;
+		x = y = z = 0;
+	}
+
 	float halfAngle = angle/2;
-	w = sin(halfAngle);
+	w = cos(halfAngle);
 
 	Vector3 normalizedAxis = axis.Normalized();
-	float cosHalfAngle = sqrt(1 - w*w); //because cos(x)^2 + sin(x)^2 = 1
+	float sinHalfAngle = sqrt(1 - w*w); //because cos(x)^2 + sin(x)^2 = 1
 
-	x = normalizedAxis.x * cosHalfAngle;
-	y = normalizedAxis.y * cosHalfAngle;
-	z = normalizedAxis.z * cosHalfAngle;
+	x = normalizedAxis.x * sinHalfAngle;
+	y = normalizedAxis.y * sinHalfAngle;
+	z = normalizedAxis.z * sinHalfAngle;
 }
 
 //Constructs a Quaternion from a Vector3, basically just adding a 0 component in front of it.

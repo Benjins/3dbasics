@@ -38,6 +38,9 @@ struct Transform
     //NOTE: Does not take into account transform.position, since that's an affine transformation
     Matrix3x3 GetMatrix() const;
 
+	//Get the forward facing vector of the transform
+	Vector3 Forward() const;
+	
     //Transform a vector into this transform's space
     Vector3 GlobalToLocal(const Vector3& original) const;
 

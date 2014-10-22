@@ -8,6 +8,7 @@ Full License Text found in LICENSE file
 */
 
 #include "Vector2.h"
+#include "Vector3.h"
 #include <cmath>
 #include <iostream>
 
@@ -108,7 +109,7 @@ Vector2 Project(const Vector2& toProject, const Vector2& projectOnto){
 }
 
 float CalculateTriangleAreaBetween(const Vector2& first, const Vector2& second){
-	return CrossProduct( Vector3(first, 0), Vector2(second, 0) ).magnitude();
+	return CrossProduct( Vector3(first, 0), Vector3(second, 0) ).Magnitude();
 }
 
 //-------------------------------------------------------------------------------------

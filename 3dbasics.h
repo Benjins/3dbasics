@@ -16,6 +16,7 @@ Full License Text found in LICENSE file
 #include "Sphere.h"
 #include "Box.h"
 #include "Triangle.h"
+#include "Transform.h"
 #include "Ray.h"
 #include "Plane.h"
 
