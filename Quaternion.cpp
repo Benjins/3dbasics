@@ -32,12 +32,9 @@ Quaternion::Quaternion(float wIn, float xIn, float yIn, float zIn){
 
 //Constructs a Quaternion that represents the given axis-angle rotation
 Quaternion::Quaternion(const Vector3& axis, float angle){
-	if(angle == 0){
-		w = 1;
-		x = y = z = 0;
-	}
+	const float _Pi = 3.14159265358979f;
 
-	float halfAngle = angle/2;
+	float halfAngle = fmodf(angle/2, _Pi);
 	w = cos(halfAngle);
 
 	Vector3 normalizedAxis = axis.Normalized();
