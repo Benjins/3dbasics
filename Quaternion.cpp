@@ -32,7 +32,7 @@ Quaternion::Quaternion(float wIn, float xIn, float yIn, float zIn){
 
 //Constructs a Quaternion that represents the given axis-angle rotation
 Quaternion::Quaternion(const Vector3& axis, float angle){
-	const float _Pi = 3.14159265358979f;
+	const float _Pi = 3.14159265358979323846264338f;
 
 	float halfAngle = fmodf(angle/2, _Pi);
 	w = cos(halfAngle);
@@ -101,6 +101,10 @@ Quaternion Quaternion::operator*(const Quaternion& multQuat) const{
 					  x*multQuat.w + w*multQuat.x - z*multQuat.y + y*multQuat.z,
 					  y*multQuat.w + z*multQuat.x + w*multQuat.y - x*multQuat.z,
 					  z*multQuat.w - y*multQuat.x + x*multQuat.y + w*multQuat.z);
+}
+
+bool Quaternion::operator==(const Quaternion& param) const{
+	return x == param.x && y == param.y && z == param.z && w == param.w;
 }
 
 //Get the conjugate (inverse) of the Quaternion

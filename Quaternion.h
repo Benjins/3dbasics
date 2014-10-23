@@ -43,13 +43,15 @@ struct Quaternion {
 	
 	Quaternion operator*(const Quaternion& multQuat) const;
 	
+	bool operator==(const Quaternion& multQuat) const;
+	
 	Quaternion Conjugate() const;
 	
 	float Magnitude() const;
 	Quaternion Normalized() const;
-	void Normalize();
+	void Normalize(void);
 	
-	void Print() const;
+	void Print(void) const;
 
 };
 
